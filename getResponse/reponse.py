@@ -13,7 +13,7 @@ openai.proxy = proxies
 
 
 completion = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
+  model="gpt-3.5-turbo", #gpt-4-0613
   messages=[
     {"role": "system", "content": "tell me are u gpt-4 or gpt 3.5?"}
   ]

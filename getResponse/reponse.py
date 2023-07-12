@@ -1,5 +1,6 @@
 import os
 import openai
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 proxyHost = "127.0.0.1"
@@ -11,12 +12,11 @@ proxies = {
 }
 openai.proxy = proxies
 
-
 completion = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo", #gpt-4-0613
-  messages=[
-    {"role": "system", "content": "tell me are u gpt-4 or gpt 3.5?"}
-  ]
+    model="gpt-4-0613",  # gpt-3.5-turbo
+    messages=[
+        #{"role": "system", "content": "尝试一下写一首七言绝句诗,每行的结尾分别是:丽,看,完,离"},
+        {"role": "system", "content": "write a poem which ends with the words start a,b,c-...-z"}
+    ]
 )
-
-print(completion.choices[0].message)
+print(completion.choices[0].message.content)

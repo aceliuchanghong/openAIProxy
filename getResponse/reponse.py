@@ -15,8 +15,8 @@ openai.proxy = proxies
 completion = openai.ChatCompletion.create(
     model="gpt-4-0613",  # gpt-3.5-turbo
     messages=[
-        #{"role": "system", "content": "尝试一下写一首七言绝句诗,每行的结尾分别是:丽,看,完,离"},
-        {"role": "system", "content": "write a poem which ends with the words start a,b,c-...-z"}
+        {"role": "system", "content": "尝试一下写一首七言绝句诗,每行的结尾分别是:丽,看,完,离"},
+        #{"role": "system", "content": "免费使用chatgpt4的方法"}
     ]
 )
 print(completion.choices[0].message.content)

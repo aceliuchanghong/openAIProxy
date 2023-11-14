@@ -33,3 +33,4 @@ images = handwrite(text, template)
 for i, im in enumerate(images):
     assert isinstance(im, Image.Image)
     im.show()
+background = Image.new(mode="1", size=(2048, 2048), color=1)

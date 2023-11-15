@@ -1,14 +1,17 @@
 import os
-import openai
+from openai import OpenAI
 
 proxyHost = "127.0.0.1"
 proxyPort = 10809
 proxies = {
-        "http": f"http://{proxyHost}:{proxyPort}",
-        "https": f"https://{proxyHost}:{proxyPort}"
-    }
-openai.proxy = proxies
-openai.api_key = os.getenv("OPENAI_API_KEY")
-    
+    "http": f"http://{proxyHost}:{proxyPort}",
+    "https": f"http://{proxyHost}:{proxyPort}"
+}
+
+client = OpenAI()
+client.api_key = os.getenv("OPENAI_API_KEY")
 audio_file = open("WeChat_20231007161725.mp3", "rb")
-transcript = openai.Audio.transcribe("whisper-1", audio_file)
+transcript = client.audio.transcriptions.create(
+    model="whisper-1",
+    file=audio_file
+)

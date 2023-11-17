@@ -67,9 +67,8 @@ text = """
 
 我国改革已经进入攻坚期和深水区，我们必须以更大的政治勇气和智慧，不失时机深化重要领域改革。实践发展永无止境，解放思想永无止境，改革开放也永无止境，停顿和倒退没有出路。
 
-——2012年12月，习近平在广东考察时强调
 """
-
+# 好用
 template_0 = Template(
     background=Image.open("00.png"),
     font=ImageFont.truetype("BiLuoSiJianHeLuoQingSong-2.ttf", size=100),
@@ -114,4 +113,5 @@ if __name__ == "__main__":
         images = handwrite(text, template_0, mapper=p.map)
         for i, im in enumerate(images):
             assert isinstance(im, Image.Image)
-            im.show()
+            # im.show()
+            im.save("../files/{}.png".format(i))

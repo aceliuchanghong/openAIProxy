@@ -11,9 +11,8 @@ completion = client.chat.completions.create(
     model="gpt-4-1106-preview",
     messages=[
         {"role": "user",
-         "content": "你是哪个模型?给我你的模型编号,是gpt-4-1106-preview还是gpt-3.5,还是其他?"
+         "content": "你是哪个模型?你的知识库截止到哪天?卡塔尔世界杯总冠军是哪个?"
          }
     ]
 )
-print(completion.choices[0].message.content)
 print(completion.choices[0].message.content)
